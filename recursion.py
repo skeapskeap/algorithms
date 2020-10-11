@@ -34,10 +34,25 @@ def max_num(some_list):
     else:
         return 0
 
+def bin_search(num, min=0, max=1000):
+    if (max-min) == 1:
+        mid = min
+        print(mid)
+    else:
+        mid = (min+max)//2
+        print(mid)
+        if mid == num:
+            return mid
+        if num > mid:
+            return bin_search(num, min=mid, max=max)
+        else:
+            return bin_search(num, min=min, max=mid)
+
 if __name__ == '__main__':
     num_list = [random.randint(0,100) for i in range(10)]
-    print(num_list)
+    #print(num_list)
     #countdown(5)
     #print(summ(num_list))
     #print(length(num_list))
-    print(max_num(num_list))
+    #print(max_num(num_list))
+    print(bin_search(346, 0, 1000))
