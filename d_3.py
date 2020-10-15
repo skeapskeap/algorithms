@@ -2,11 +2,10 @@
 есть словарь соседей со стоимостями
 перехода к ним '''
 graph = {}
-graph['start'] = {'a': 5, 'b': 2}
-graph['a'] = {'c': 4, 'd': 2}
-graph['b'] = {'a': 6, 'd': 7}
-graph['c'] = {'d': 6, 'finish': 3}
-graph['d'] = {'finish': 1}
+graph['start'] = {'a': 2, 'b': 2}
+graph['a'] = {'c': 2, 'finish': 2}
+graph['b'] = {'a': 2}
+graph['c'] = {'b': -1, 'finish': 2}
 graph['finish'] = {}
 
 ''' в эту таблицу по ходу работы
@@ -14,10 +13,9 @@ graph['finish'] = {}
 стоимости перехода к ним от начала '''
 infinity = float('inf')
 costs = {}
-costs['a'] = 5 # сначала известны только стоимости
+costs['a'] = 2 # сначала известны только стоимости
 costs['b'] = 2 # непосредственных соседей
 costs['c'] = infinity # у остальных стоимость = бесконечность
-costs['d'] = infinity
 costs['finish'] = infinity
 
 parents = {}
